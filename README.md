@@ -1,4 +1,4 @@
-![Java CI](https://github.com/kill9zombie/keycloak_jsonlog_eventlistener/workflows/Java%20CI/badge.svg)
+![Java CI](https://github.com/vl-io/keycloak_jsonlog_eventlistener/workflows/Java%20CI/badge.svg)
 
 # Keycloak JSON Log Eventlistener
 
