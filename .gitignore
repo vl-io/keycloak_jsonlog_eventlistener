@@ -24,3 +24,6 @@ hs_err_pid*
 
 # Vim swap files
 *.swp
+jsonlog_event_listener/.classpath
+jsonlog_event_listener/.settings/
+jsonlog_event_listener/.vscode/

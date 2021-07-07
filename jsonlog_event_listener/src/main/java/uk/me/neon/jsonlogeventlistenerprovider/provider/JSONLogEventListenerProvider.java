@@ -33,24 +33,12 @@ public class JSONLogEventListenerProvider implements EventListenerProvider {
 
     @Override
     public void onEvent(Event event) {
-        StringBuilder sb = new StringBuilder();
-
-        sb.append(prefix);
-        sb.append(toJsonString(event));
-
-        logger.log(Logger.Level.INFO, sb.toString());
+        logger.log(Logger.Level.INFO, toJson(event));
     }
 
     @Override
     public void onEvent(AdminEvent adminEvent, boolean b) {
-
-
-        StringBuilder sb = new StringBuilder();
-
-        sb.append(prefix);
-        sb.append(toJsonString(adminEvent));
-
-        logger.log(Logger.Level.INFO, sb.toString());
+        logger.log(Logger.Level.INFO, toJson(adminEvent));
     }
 
     @Override
@@ -98,7 +86,7 @@ public class JSONLogEventListenerProvider implements EventListenerProvider {
     }
 
 
-    private String toJsonString(Event event) {
+    private JsonObject toJson(Event event) {
 
         JsonObjectBuilder obj = Json.createObjectBuilder();
 
@@ -146,13 +134,13 @@ public class JSONLogEventListenerProvider implements EventListenerProvider {
             }
         }
 
-        return obj.build().toString();
+        return obj.build();
 
     }
 
 
 
-    private String toJsonString(AdminEvent adminEvent) {
+    private JsonObject toJson(AdminEvent adminEvent) {
         JsonObjectBuilder obj = Json.createObjectBuilder();
 
         obj.add("type", "ADMIN_EVENT");
@@ -205,7 +193,7 @@ public class JSONLogEventListenerProvider implements EventListenerProvider {
             obj.add("error", adminEvent.getError().toString());
         }
 
-        return obj.build().toString();
+        return obj.build();
     }
 
 }
